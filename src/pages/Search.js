@@ -2,6 +2,7 @@ import { useFetch } from '../hooks/useFetch';
 import { Card, CardSkeleton } from "../components";
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export const Search = () => {
     const [ load, setLoad ] =useState(true);
@@ -16,8 +17,11 @@ export const Search = () => {
     }, [loading]);
 
     if(error) {
-        return <h3 className='mx-auto container'>Server down! The OMDB API are currently unavailable. try again!</h3>
-    }
+        return  <div className='flex-col container'>
+                    <h3 className='mx-auto'>Server down! The OMDB API are currently unavailable. try again!</h3>
+                    <span className='text-gray-200 py-2'>Check out Movimate, based on TMDB API.<a className='text-blue-600' href="https://movimate.netlify.app" target="_blank" rel="noopener noreferrer"> Visit Movimate <ArrowForwardIcon/></a></span>
+                </div>
+    }               
    return (
     <div className='container'>
         <h1 className='pb-4 pt-8'>Search "{queryTerm}"</h1>

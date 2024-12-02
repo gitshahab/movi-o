@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useFetch } from '../hooks/useFetch'
 import { Card, CardSkeleton } from '../components';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export const Blockbuster = () => {
     const [ load, setLoad ] = useState(true);
@@ -27,7 +28,10 @@ export const Blockbuster = () => {
     }, [loading1, loading2, loading3, loading4, loading5, loading6, loading6a, loading6b, loading7, loading8, loading9, loading10]);
 
     if (error1 || error2 || error3 || error4 || error5 || error6|| error6a || error6b || error7 || error8 || error9 || error10) {
-        return <h3 className='mx-auto container py-5'>Server down! The OMDB API are currently unavailable. try again!</h3>
+        return  <div className='flex-col container pt-10'>
+                    <h3 className='mx-auto'>Server down! The OMDB API are currently unavailable. try again!</h3>
+                    <span className='text-gray-200 py-2'>Check out Movimate, based on TMDB API.<a className='text-blue-600' href="https://movimate.netlify.app" target="_blank" rel="noopener noreferrer"> Visit Movimate <ArrowForwardIcon/></a></span>
+                </div>
     }
   return (
     <div className='container'>
