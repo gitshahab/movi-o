@@ -16,6 +16,7 @@ export const Blockbuster = () => {
     const { data: data8, loading:loading8, error: error8 } = useFetch(`http://www.omdbapi.com/?s=Mission&apikey=${process.env.REACT_APP_API_KEY}`);
     const { data: data9, loading:loading9, error: error9 } = useFetch(`http://www.omdbapi.com/?s=Venom&apikey=${process.env.REACT_APP_API_KEY}`);
     const { data: data10, loading:loading10, error: error10 } = useFetch(`http://www.omdbapi.com/?s=fast&apikey=${process.env.REACT_APP_API_KEY}`);
+    console.log(process.env.REACT_APP_API_KEY);
 
     const data = [ ...data1, ...data2, ...data3, ...data4];
     const adventureData = [ ...data5, ...data6, ...data6a ];
@@ -27,7 +28,7 @@ export const Blockbuster = () => {
     }, [loading1, loading2, loading3, loading4, loading5, loading6, loading6a, loading6b, loading7, loading8, loading9, loading10]);
 
     if (error1 || error2 || error3 || error4 || error5 || error6|| error6a || error6b || error7 || error8 || error9 || error10) {
-        return <h3 className='mx-auto container'>Server down! The OMDB API are currently unavailable. try again!</h3>
+        return <h3 className='mx-auto container py-5'>Server down! The OMDB API are currently unavailable. try again!</h3>
     }
   return (
     <div className='container'>
