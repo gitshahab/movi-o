@@ -16,6 +16,7 @@ export const useFetch = (url) => {
                 setData(json.Search || []);
             } catch (err) {
                 setError(err.message);
+                console.log(err.message);
             } finally {
                 setLoading(false);
             }
