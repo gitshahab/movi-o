@@ -8,7 +8,7 @@ export const Search = () => {
     const [ searchParams ] = useSearchParams();
     const queryTerm = searchParams.get('q') || "War";
 
-    const { data, loading, error } = useFetch(`http://www.omdbapi.com/?s=${queryTerm}&apikey=${process.env.REACT_APP_API_KEY}`);
+    const { data, loading, error } = useFetch(`https://www.omdbapi.com/?s=${queryTerm}&apikey=${process.env.REACT_APP_API_KEY}`);
 
     useEffect(() => {
         const isLoading = loading;
